@@ -62,13 +62,13 @@ export function StatusSelector({
         </Button>
         <Button
           size="sm"
-          variant={status === "pending" ? "default" : "outline"}
+          variant={status === "in_progress" ? "default" : "outline"}
           className={`h-7 text-xs ${
-            status === "pending"
+            status === "in_progress"
               ? "bg-amber-600 text-white hover:bg-amber-500"
               : "border-zinc-800 text-zinc-400 hover:bg-zinc-900"
           }`}
-          onClick={() => onStatusChange("pending")}
+          onClick={() => onStatusChange("in_progress")}
         >
           <Clock className="mr-1 h-3 w-3" />
           Pending
