@@ -29,9 +29,13 @@ try {
     max_tokens: 100,
     messages: [{ role: "user", content: "Say hello in one word" }],
   });
-
   console.log("✅ API call successful!");
-  console.log("   Response:", response.content[0].text);
+  const firstBlock = response.content[0];
+  if (firstBlock && firstBlock.type === "text") {
+    console.log("   Response:", firstBlock.text);
+  } else {
+    console.log("   Response (raw):", JSON.stringify(response.content, null, 2));
+  }
   console.log("\n🎉 All tests passed! The API key works correctly.");
 } catch (error: any) {
   console.error("\n❌ API call failed!");
