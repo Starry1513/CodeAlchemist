@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { MatchRateBadge } from "./match-rate-badge";
-import { StatusSelector } from "./status-selector";
+import { StatusSelector, type AssignmentStatus } from "./status-selector";
 
 type Candidate = {
   name: string;
@@ -22,7 +22,7 @@ type Assignment = {
   overallMatch: number;
   communicationMatch: number;
   codeMatch: number;
-  status: "pending" | "proceed" | "rejected";
+  status: AssignmentStatus;
   evaluationReportId?: string;
 };
 
@@ -30,7 +30,7 @@ interface CandidateRowProps {
   assignment: Assignment;
   candidate: Candidate;
   role: Role;
-  onStatusChange: (assignmentId: string, status: Assignment["status"]) => void;
+  onStatusChange: (assignmentId: string, status: AssignmentStatus) => void;
 }
 
 export function CandidateRow({
